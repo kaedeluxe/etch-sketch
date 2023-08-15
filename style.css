@@ -4,36 +4,58 @@
   box-sizing: border-box;
 }
 
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%;
 }
 
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
   font: inherit;
 }
 
 /* END RESET */
 
+@keyframes shake {
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
 body {
-  background: #2b2b2b;
+  background: hsl(0, 0%, 17%);
 }
 
 #content,
 #main-container,
-#top-nav
-{
+.shake-btn__bg {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+}
+
+#content {
+  gap: 40px;
 }
 
 #main-container {
-  width: 90vmin;
-  height: 90vmin;
-  background: #5b5b5b;
+  will-change: transform;
+  width: 60vmin;
+  height: 60vmin;
+  background: hsl(0, 0%, 26%);
   flex-wrap: wrap;
-  margin-top: 1vmin;
+  /* margin-top: 10vmin; */
+  box-shadow: 0 2px 20px hsla(0, 0%, 0%, 0.6);
 }
 
 p {
@@ -45,8 +67,8 @@ p {
 }
 
 .square {
-  border: 1px solid #2b2b2b;
-  transition: 5000ms 5000ms;
+  border: 1px solid hsl(0, 0%, 17%);
+  transition: 5000ms;
 }
 
 .square-hover {
@@ -56,30 +78,46 @@ p {
 
 #top-nav {
   height: 50px;
-  background: #000;
+  background: hsl(0, 0%, 7%);
   width: 100%;
-  justify-content: left;
 }
 
 #top-nav p {
-  flex: 3;
   text-align: left;
+  transform: translateY(-12px);
 }
 
-#top-nav div {
-  flex: 4;
+#shake-btn {
+  margin-top: 20px;
+  /* margin-left: 50%; */
+  /* transform: translateX(-50%); */
+  width: 100px;
+  height: 50px;
+  background: transparent;
+  border: none;
+  color: hsl(0, 0%, 17%);
 }
 
-#create-btn {
-  padding: 5px 20px;
-  background: none;
-  border: 1px solid #fff;
-  color: #ccc;
-}
-
-#create-btn:hover {
-  color: #fff;
+#shake-btn:hover {
   cursor: pointer;
+}
+
+.shake-btn__bg {
+  background: hsl(0, 0%, 80%);
+  height: 100%;
+  width: 100%;
+  border: 1px solid #fff;
+  will-change: transform;
+}
+
+#shake-btn:hover .shake-btn__bg {
+  animation-name: shake;
+  animation-duration: 350ms;
+  animation-iteration-count: infinite;
+}
+
+#slider-num {
+  width: 60vw;
 }
 
 .show {

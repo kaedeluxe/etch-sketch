@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -10,14 +10,15 @@
   <body>
     <div id="top-nav">
       <p>Etchasketcha</p>
-      <div>
-        <input type="number" id="input-num">
-        <button type="button" id="create-btn">Create</button>
-      </div>
     </div>
     <div id="content">
-      <div id="main-container">
-      <p>Enter the number of columns from 2 to 100 and click Create to begin :3</p>
+      <button type="button" id="shake-btn">
+        <span class="shake-btn__bg">Shake!</span>
+      </button>
+      <div id="main-container"></div>
+      <div>
+        <input type="range" min="1" max="50" value="16" id="slider-num" />
+        <p id="slider-display">16</p>
       </div>
     </div>
   </body>

@@ -1,26 +1,38 @@
 const createEl = (userEl) => document.createElement(userEl),
   query = (userQ) => document.querySelector(userQ),
   queryAll = (userQ) => document.querySelectorAll(userQ),
-  container = query('#main-container'),
-  createBtn = query('#create-btn'),
-  inputNum = query('#input-num');
+  container = query("#main-container"),
+  createBtn = query("#create-btn"),
+  inputNum = query("#slider-num"),
+  inputDisplay = query("#slider-display"),
+  shakeBtn = query("#shake-btn");
 
-let squareNum, squareEl, squareAll;
+let squareNum = 16,
+  squareEl,
+  squareAll;
+
+document.addEventListener("DOMContentLoaded", function () {
+  createSquares();
+  squareAll = queryAll(".square");
+  addEvent();
+});
+
+inputNum.oninput = function () {
+  inputDisplay.textContent = this.value;
+  createSquares();
+  squareAll = queryAll(".square");
+  addEvent();
+};
 
 function createSquares() {
-  if (inputNum.value >= 2 && inputNum.value <= 100) {
-    squareNum = inputNum.value;
-  } else {
-    alert('Invalid range: please enter a number between 2 and 100');
-    return;
-  }
+  squareNum = inputNum.value;
   while (container.hasChildNodes()) {
     container.removeChild(container.lastChild);
   }
   for (let i = 0; i < squareNum * squareNum; i++) {
     let squarePct = 100 / squareNum;
-    squareEl = createEl('div');
-    squareEl.className = 'square';
+    squareEl = createEl("div");
+    squareEl.className = "square";
     squareEl.style.flex = `0 0 ${squarePct}%`;
     squareEl.style.height = `${squarePct}%`;
     squareEl.style.width = `${squarePct}%`;
@@ -29,26 +41,35 @@ function createSquares() {
 }
 
 function hoverIn(currSquare) {
-  currSquare.classList.add('square-hover');
+  currSquare.style.transition = `5ms`;
+  currSquare.classList.add("square-hover");
 }
 
-function hoverOut(currSquare) {
-  currSquare.classList.remove('square-hover');
+function shakeScreen() {
+  container.animate(
+    [
+      { transform: "translateX(0)" },
+      { transform: "translateX(-20px)" },
+      { transform: "translateX(20px)" },
+      { transform: "translateX(0)" },
+    ],
+    {
+      duration: 350,
+      iterations: 3,
+    },
+  );
+  squareAll.forEach((square) => {
+    square.style.transition = `${Math.random() * 15000}ms`;
+    square.classList.remove("square-hover");
+  });
 }
 
 function addEvent() {
   squareAll.forEach((square) => {
-    square.addEventListener('mouseenter', () => {
+    square.addEventListener("mouseenter", () => {
       hoverIn(square);
-    });
-    square.addEventListener('mouseleave', () => {
-      hoverOut(square);
     });
   });
 }
 
-createBtn.addEventListener('click', () => {
-  createSquares();
-  squareAll = queryAll('.square');
-  addEvent();
-});
+shakeBtn.addEventListener("click", shakeScreen);
