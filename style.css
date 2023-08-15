@@ -1,0 +1,49 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* END RESET */
+
+body {
+  background: #2b2b2b;
+}
+
+#content,
+#main-container,
+#top-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#main-container {
+  width: 90vh;
+  height: 90vh;
+  background: red;
+  flex-wrap: wrap;
+  margin-top: 1.25%;
+}
+
+.square {
+  border: 1px solid black;
+}
+
+#top-nav {
+  height: 50px;
+  background: #000;
+}
+
+#create-btn {
+  padding: 15px 20px;
+}
