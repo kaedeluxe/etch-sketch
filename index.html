@@ -1,9 +1,15 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Maven+Pro&family=Nunito&family=Roboto:ital,wght@0,400;0,700;0,900;1,300&display=swap"
+      rel="stylesheet"
+    />
     <script src="./script.js" defer></script>
     <title>Etch a Sketch</title>
   </head>
@@ -12,13 +18,26 @@
       <p>Etchasketcha</p>
     </div>
     <div id="content">
-      <button type="button" id="shake-btn">
-        <span class="shake-btn__bg">Shake!</span>
-      </button>
-      <div id="main-container"></div>
-      <div>
-        <input type="range" min="1" max="50" value="16" id="slider-num" />
-        <p id="slider-display">16</p>
+      <div id="screen-bg">
+        <div id="main-container"></div>
+      </div>
+        <div>
+          <input type="range" min="1" max="50" value="16" id="slider-num" />
+          <p id="slider-display">16</p>
+        </div>
+      <div id="controls">
+        <div id="color-pick">
+          <div class="col-light" data-col="light"></div>
+          <div class="col-med" data-col="med"></div>
+          <div class="col-dark" data-col="dark"></div>
+          <div class="col-black" data-col="black"></div>
+        </div>
+        <div class="face-div">
+          <button type="button" id="shake-btn" class="face-btn">
+            <span class="face-btn__top">S</span>
+          </button>
+          <p class="face-txt">Shake</p>
+        </div>
       </div>
     </div>
   </body>

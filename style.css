@@ -1,14 +1,17 @@
-* {
+*
+{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Nunito', sans-serif;
 }
 
 img,
 picture,
 video,
 canvas,
-svg {
+svg
+{
   display: block;
   max-width: 100%;
 }
@@ -16,49 +19,90 @@ svg {
 input,
 button,
 textarea,
-select {
+select
+{
   font: inherit;
 }
 
 /* END RESET */
 
-@keyframes shake {
-  25% {
+/* *
+{
+  border: 1px solid red;
+} */
+
+@keyframes shake
+{
+  25%
+  {
     transform: translateX(-5px);
   }
-  75% {
+
+  75%
+  {
     transform: translateX(5px);
   }
 }
 
-body {
+body
+{
   background: hsl(0, 0%, 17%);
+  height: 100vh;
 }
 
 #content,
 #main-container,
-.shake-btn__bg {
+#controls,
+.face-div,
+/* #screen-bg, */
+.face-btn__top {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
 }
 
-#content {
+#content
+{
   gap: 40px;
+  flex-direction: column;
+  background: hsl(84, 7%, 29%);
+  border-radius: 10px;
+  width: 75vmin;
+  height: 90vh;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: space-around;
+  margin-top: 20px;
 }
 
-#main-container {
+#screen-bg {
+  background: hsl(0, 0%, 0%);
+  margin-top: 20px;
+  width: 75%; 
+  height: 75%;
+  border-radius: 10px 10px 65px 10px;
+}
+
+#main-container
+{
+  margin-left: auto;
+  margin-right: auto;
   will-change: transform;
-  width: 60vmin;
-  height: 60vmin;
-  background: hsl(0, 0%, 26%);
+  flex-direction: column;
+  border-radius: 10px;
+  border: 1px solid hsla(200, 60%, 0%, 0.1);
+  overflow: hidden;
+  width: 50vmin;
+  height: 50vmin;
+  background: hsl(80, 12%, 37%);
   flex-wrap: wrap;
-  /* margin-top: 10vmin; */
-  box-shadow: 0 2px 20px hsla(0, 0%, 0%, 0.6);
+  margin-top: 10px;
+  box-shadow: inset 0 2px 20px hsla(0, 0%, 0%, 0.4);
+  /* margin-top: 20px; */
 }
 
-p {
+p
+{
   color: #fff;
   font-size: 30px;
   font-weight: bold;
@@ -66,60 +110,124 @@ p {
   padding: 20px;
 }
 
-.square {
-  border: 1px solid hsl(0, 0%, 17%);
+.square
+{
+  border: 1px solid hsla(200, 60%, 0%, 0.1);
+  /* box-shadow: 4px 4px 5px hsla(0, 0%, 0%, 0.3); */
   transition: 5000ms;
 }
 
-.square-hover {
-  background: hsl(200, 50%, 50%);
+.square-hover
+{
+  background: hsl(80, 27%, 17%);
   transition: 5ms;
 }
 
-#top-nav {
+#top-nav
+{
   height: 50px;
   background: hsl(0, 0%, 7%);
   width: 100%;
 }
 
-#top-nav p {
+#top-nav p
+{
   text-align: left;
   transform: translateY(-12px);
 }
 
-#shake-btn {
-  margin-top: 20px;
-  /* margin-left: 50%; */
-  /* transform: translateX(-50%); */
-  width: 100px;
-  height: 50px;
-  background: transparent;
-  border: none;
-  color: hsl(0, 0%, 17%);
+#controls
+{
+  flex-direction: row;
+  align-items: center;
+  margin-top: 10px;
+  justify-content: space-around;
+  width: 60vmin;
 }
 
-#shake-btn:hover {
+#color-pick
+{
+  display: flex;
+  gap: 10px;
+}
+
+#color-pick div
+{
+  border: 1px solid hsl(0, 0%, 100%);
+  width: 65px;
+  height: 40px;
+  cursor: pointer;
+  transition: 200ms;
+}
+
+#color-pick div:hover {
+  transform: scale(1.05);
+  transition: 50ms;
+}
+
+#color-pick :nth-child(1)
+{
+  background: hsl(84, 27%, 69%);
+}
+
+#color-pick :nth-child(2)
+{
+  background: hsl(87, 14%, 55%);
+}
+
+#color-pick :nth-child(3)
+{
+  background: hsl(87, 17%, 38%);
+}
+
+#color-pick :nth-child(4)
+{
+  background: hsl(80, 27%, 17%);
+}
+
+.face-div {
+  flex-direction: column;
+  align-items: center;
+}
+
+.face-btn {
+  background: linear-gradient( 90deg, hsl(355, 50%, 20%),hsl(355, 50%, 30%), hsl(355, 50%, 20%));
+  border: none;
+  border-radius: 50%;
   cursor: pointer;
 }
 
-.shake-btn__bg {
-  background: hsl(0, 0%, 80%);
-  height: 100%;
-  width: 100%;
-  border: 1px solid #fff;
+.face-btn__top {
+  background: hsl(350, 50%, 50%);
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
   will-change: transform;
+  transform: translateY(-4px);
+  transition: 500ms ease-in-out;
 }
 
-#shake-btn:hover .shake-btn__bg {
-  animation-name: shake;
-  animation-duration: 350ms;
-  animation-iteration-count: infinite;
+.face-btn:hover .face-btn__top {
+  transform: translateY(-6px);
+  transition: 250ms;
 }
 
-#slider-num {
-  width: 60vw;
+.face-btn:active .face-btn__top {
+  transform: translateY(-2px);
+  transition: 32ms;
 }
 
-.show {
+.face-txt {
+  text-transform: uppercase;
+  padding: 0;
+}
+
+#slider-num
+{
+  width: 400px;
+}
+
+.show
+{
   display: flex;
 }
