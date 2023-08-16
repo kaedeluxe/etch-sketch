@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./newstyle.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -14,29 +14,14 @@
     <title>Etch a Sketch</title>
   </head>
   <body>
-    <div id="top-nav">
-      <p>Etchasketcha</p>
-    </div>
     <div id="content">
-      <div id="screen-bg">
-        <div id="main-container"></div>
-      </div>
-        <div>
+      <div class="shell-bg">
+        <div class="screen-bg">
+          <div id="main-container"></div>
+        </div>
+        <div class="range-selector">
           <input type="range" min="1" max="50" value="16" id="slider-num" />
-          <p id="slider-display">16</p>
-        </div>
-      <div id="controls">
-        <div id="color-pick">
-          <div class="col-light" data-col="light"></div>
-          <div class="col-med" data-col="med"></div>
-          <div class="col-dark" data-col="dark"></div>
-          <div class="col-black" data-col="black"></div>
-        </div>
-        <div class="face-div">
-          <button type="button" id="shake-btn" class="face-btn">
-            <span class="face-btn__top">S</span>
-          </button>
-          <p class="face-txt">Shake</p>
+          <p class="range-display">16</p>
         </div>
       </div>
     </div>

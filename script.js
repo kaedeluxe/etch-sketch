@@ -4,8 +4,8 @@ const createEl = (userEl) => document.createElement(userEl),
   container = query("#main-container"),
   createBtn = query("#create-btn"),
   inputNum = query("#slider-num"),
-  inputDisplay = query("#slider-display"),
-  shakeBtn = query("#shake-btn");
+  inputDisplay = query(".range-display");
+  // shakeBtn = query("#shake-btn");
 
 let squareNum = 16,
   squareEl,
@@ -72,4 +72,4 @@ function addEvent() {
   });
 }
 
-shakeBtn.addEventListener("click", shakeScreen);
+// shakeBtn.addEventListener("click", shakeScreen);
